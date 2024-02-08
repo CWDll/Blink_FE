@@ -42,7 +42,7 @@ export const Input = styled.input.attrs({
 export const SearchIcon = styled.img`
   position: relative;
   left: 88%;
-  transform: translateY(-170%);
+  transform: translateY(-180%);
   cursor: pointer;
   width: 30px;
   height: 30px;
