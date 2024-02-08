@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const Input = styled.input.attrs({
   type: "text",
-  placeholder: "어떤 지역의 제보를 찾으시나요?",
+  placeholder: "찾으시는 지역 또는 지하철역 이름을 입력해주세요!",
 })`
   display: block;
   width: 384px;
