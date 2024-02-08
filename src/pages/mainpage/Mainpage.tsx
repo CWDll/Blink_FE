@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./style";
 import CardContainer from "../../components/mainpage/CardContainer/CardContainer";
 import Search from "../../components/mainpage/SearchContainer/Search";
+import MapContainer from "../../components/mainpage/Map/MapContainer";
 
 const Mainpage = () => {
   return (
@@ -10,7 +11,7 @@ const Mainpage = () => {
         <Search />
         <CardContainer />
       </div>
-      <div>구글맵 페이지</div>
+      <MapContainer />
     </S.MainWrapper>
   );
 };
