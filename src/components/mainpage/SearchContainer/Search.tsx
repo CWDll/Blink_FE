@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import Tag from "./Tag";
+import searchIcon from "../../../assets/Icon/search.svg";
 
 function Search() {
   // 태그 길이 길어지면 ... 으로 자를까 해서 미리 작성해둠.
@@ -18,6 +19,14 @@ function Search() {
       setInputText("");
     }
   };
+  const clickSearch = (e: React.MouseEvent) => {
+    if (inputText) {
+      setTags([...tags, inputText]);
+      setInputText("");
+    } else {
+      alert("검색어를 입력해주세요.");
+    }
+  };
 
   const deleteTag = (index: number) => {
     setTags(tags.filter((_, idx) => idx !== index));
@@ -30,6 +39,7 @@ function Search() {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
+      <S.SearchIcon src={searchIcon} alt="검색" onClick={clickSearch} />
       <div>
         <S.LocationText>최근 검색 지역</S.LocationText>
         <S.TagConatainer>

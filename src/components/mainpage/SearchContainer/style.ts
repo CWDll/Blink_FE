@@ -19,29 +19,33 @@ export const Input = styled.input.attrs({
   type: "text",
   placeholder: "어떤 지역의 제보를 찾으시나요?",
 })`
-  display: block; 
+  display: block;
   width: 384px;
   height: 24px;
-  padding: 16px 20px; 
-  font-size: 1rem; 
-  line-height: 1.5; 
-  color: #333; 
-  border-radius: 10px; 
+  padding: 16px 40px 16px 20px; /* 오른쪽 패딩 조정 */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  border-radius: 10px;
   border: 1px solid #ddedff;
-  /* outline: none; // 클릭 시 외곽선 제거 */
+  outline: none; // 클릭 시 외곽선 제거
 
-  // 입력창 내부에 검색 아이콘을 배치하기 위한 스타일
-  background: #fff url(${search}) no-repeat right 16px center;
-  background-size: 20px;
-
-  // 플레이스홀더 스타일
   &::placeholder {
-    color: #a5a5a5; 
-
-  // 입력창 포커스 시 스타일
-  &:focus {
-    border-color: #007aff; // 포커스 됐을 때 테두리 색상
+    color: #a5a5a5;
   }
+
+  &:focus {
+    border-color: #007aff;
+  }
+`;
+
+export const SearchIcon = styled.img`
+  position: relative;
+  left: 88%;
+  transform: translateY(-170%);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 `;
 
 export const TagConatainer = styled.div`
