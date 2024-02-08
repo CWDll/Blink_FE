@@ -6,6 +6,7 @@ import SearchComponent from "../../components/expert/SearchComponent";
 import { useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { selectedExpertTypeState } from "../../recoil/expertState";
+import ExpertTypeListCard from "../../components/expert/ExpertTypeListCard";
 
 const ExpertTypeList: React.FC = () => {
   const [selectedExpertType, setSelectedExpertType] = useRecoilState(
@@ -13,7 +14,6 @@ const ExpertTypeList: React.FC = () => {
   );
 
   useEffect(() => {
-    // 페이지가 로드될 때 로컬 스토리지에서 선택한 전문가 유형을 가져와서 설정
     const storedType = localStorage.getItem("selectedExpertType");
     if (storedType) {
       setSelectedExpertType(storedType);
@@ -25,7 +25,7 @@ const ExpertTypeList: React.FC = () => {
       <S.ExpertWrapper>
         <SearchComponent />
         <ExpertQuestion />
-        {/* <ExpertQuestion currentPath={currentPath} /> */}
+        <ExpertTypeListCard />
       </S.ExpertWrapper>
     </RecoilRoot>
   );
