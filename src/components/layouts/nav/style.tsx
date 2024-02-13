@@ -13,6 +13,7 @@ export const NavWrapper = styled.div`
 
   background: #1b2130;
   cursor: default;
+  z-index: 100;
 `;
 export const MenuWrapper = styled.div`
   /* min-height: ; */
