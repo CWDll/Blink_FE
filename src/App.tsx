@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Nav from "./components/layouts/nav/Nav";
 import Footer from "./components/layouts/footer/Footer";
 import { GlobalStyle } from "./globalStyle";
+import { RecoilRoot } from "recoil";
 
 const BackGroundColor = styled.div`
   width: 100vw;
@@ -40,8 +41,10 @@ const Layout = () => {
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Layout />
+      <RecoilRoot>
+        <GlobalStyle />
+        <Layout />
+      </RecoilRoot>
     </>
   );
 }

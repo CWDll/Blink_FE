@@ -9,6 +9,7 @@ import Login from "./pages/login/Login";
 import SignUp from "./pages/login/SignUp";
 import GeneralMember from "./pages/login/GeneralMember";
 import ExpertMember from "./pages/login/ExpertMember";
+import ExpertTypeList from "./pages/expert/ExpertTypeList";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "expert",
         element: <Expert />,
+      },
+      {
+        path: "expertTypeList",
+        element: <ExpertTypeList />,
       },
       {
         path: "login",
