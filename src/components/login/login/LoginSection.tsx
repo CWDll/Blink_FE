@@ -19,8 +19,8 @@ const LoginSection = () => {
         email: email,
         password: pw,
       });
-      console.log(response.data.token.access_token);
-      console.log(response.data.token.refresh_token);
+      console.log(response.data.token.access);
+      console.log(response.data.token.refresh);
     } catch (error) {
       console.log("ERROR", error);
     }
