@@ -9,6 +9,8 @@ export const CardContainer = styled.div`
   width: 400px;
   height: 300px;
   flex-direction: column;
+  margin-top: 5px;
+  margin-right: 20px;
 `;
 
 export const TitleContainer = styled.div`
@@ -18,11 +20,14 @@ export const TitleContainer = styled.div`
   border-radius: 16px;
   width: 400px;
   height: 50px;
-  justify-content: flex-start;
+
   background-color: #f0f6ff;
-  align-items: center;
+
   padding: 22px;
   font-weight: 500;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
 `;
 
 export const Title = styled.div`
@@ -30,13 +35,23 @@ export const Title = styled.div`
   font-family: "Noto Sans KR";
   font-size: 18px;
   border-radius: 16px;
-  width: 400px;
-  height: 50px;
-  justify-content: flex-start;
-  background-color: #f0f6ff;
+  /* width: 400px;
+  height: 50px; */
   align-items: center;
-  padding: 22px;
+
   font-weight: 500;
+`;
+
+export const More = styled.div`
+  display: flex;
+  font-family: "Noto Sans KR";
+  font-size: 12px;
+  border-radius: 16px;
+  /* width: 400px;
+  height: 50px; */
+  font-weight: 500;
+  gap: 3px;
+  color: #71777d;
 `;
 
 export const Article = styled.div`

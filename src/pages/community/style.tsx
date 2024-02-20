@@ -157,9 +157,15 @@ export const Divider = styled.div`
   width: 820px;
   /* height: 4px; */
   margin-top: 20px;
+  margin-bottom: 10px;
 `;
 
 export const BulletinContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const BulletinDirection = styled.div`
   display: flex;
   flex-direction: row;
 `;

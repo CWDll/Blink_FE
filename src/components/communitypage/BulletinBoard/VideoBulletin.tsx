@@ -2,12 +2,19 @@ import React from "react";
 import * as S from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const BulletinBoard = () => {
+const VideoBulletin = () => {
   return (
     <>
       <S.CardContainer>
-        <S.Title>자유게시판</S.Title>
+        <S.TitleContainer>
+          <S.Title>영상 공유 게시판</S.Title>
+          <S.More>
+            더보기
+            <FontAwesomeIcon icon={faChevronRight} />
+          </S.More>
+        </S.TitleContainer>
 
         {/* 최신순으로 정렬 */}
         <S.Article>
@@ -69,4 +76,4 @@ const BulletinBoard = () => {
   );
 };
 
-export default BulletinBoard;
+export default VideoBulletin;

@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Hotissue from "../../components/communitypage/Hotissue/Hotissue";
-import BulletinBoard from "../../components/communitypage/BulletinBoard/BulletinBoard";
+import FreeBulletin from "../../components/communitypage/BulletinBoard/FreeBulletin";
+import QnaBulletin from "../../components/communitypage/BulletinBoard/QnaBulletin";
+import Negligence from "../../components/communitypage/BulletinBoard/Negligence";
+import VideoBulletin from "../../components/communitypage/BulletinBoard/VideoBulletin";
 
 const Community = () => {
   const navigate = useNavigate();
@@ -53,9 +56,16 @@ const Community = () => {
         </S.HotIssue>
         <S.Divider />
         <S.BulletinContainer>
-          <BulletinBoard />
-          <BulletinBoard />
+          <S.BulletinDirection>
+            <FreeBulletin />
+            <QnaBulletin />
+          </S.BulletinDirection>
+          <S.BulletinDirection>
+            <Negligence />
+            <VideoBulletin />
+          </S.BulletinDirection>
         </S.BulletinContainer>
+        {/* <S.Divider /> */}
       </S.BgWrapper>
     </>
   );
