@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Hotissue from "../../components/communitypage/Hotissue/Hotissue";
+import BulletinBoard from "../../components/communitypage/BulletinBoard/BulletinBoard";
 
 const Community = () => {
   const navigate = useNavigate();
@@ -28,8 +29,8 @@ const Community = () => {
               나의 글
             </S.MyArticleButton>
             <S.WriteButton>글 작성하기</S.WriteButton>
+            <S.AdZone />
           </S.SearchContainer>
-          <S.AdZone />
         </S.CommunityHeader>
 
         <S.HotIssue>
@@ -51,6 +52,10 @@ const Community = () => {
           </S.CardContainer>
         </S.HotIssue>
         <S.Divider />
+        <S.BulletinContainer>
+          <BulletinBoard />
+          <BulletinBoard />
+        </S.BulletinContainer>
       </S.BgWrapper>
     </>
   );

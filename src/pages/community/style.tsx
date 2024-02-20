@@ -79,7 +79,7 @@ export const WriteButton = styled.div`
 
 export const AdZone = styled.div`
   display: flex;
-  width: 300px;
+  width: 340px;
   height: 151px;
   flex-shrink: 0;
   border-radius: 10px;
@@ -92,6 +92,7 @@ export const HotIssue = styled.div`
   justify-content: space-between;
   /* width: 150px; */
   flex-direction: column;
+  margin-top: 40px;
 `;
 
 export const HotIssueTop = styled.div`
@@ -156,4 +157,9 @@ export const Divider = styled.div`
   width: 820px;
   /* height: 4px; */
   margin-top: 20px;
+`;
+
+export const BulletinContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
