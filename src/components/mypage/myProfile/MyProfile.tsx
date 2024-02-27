@@ -1,12 +1,13 @@
 import React from "react";
+import * as S from "./style";
 
 const MyProfile = () => {
   return (
-    <div>
-      <div>
+    <S.MyprofileWrapper>
+      <S.LeftContents>
         <img src="" alt="프로필 사진" />
         <div>기본 정보 수정</div>
-      </div>
+      </S.LeftContents>
       <div>
         <div>보노보노</div>
         <div>일반 회원</div>
@@ -17,7 +18,7 @@ const MyProfile = () => {
         <div>3명</div>
         <div>로그아웃</div>
       </div>
-    </div>
+    </S.MyprofileWrapper>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import * as S from "./style";
 
 const ChatList = () => {
   const ChatComponent: React.FC = () => {
@@ -18,14 +19,14 @@ const ChatList = () => {
   };
 
   return (
-    <div>
+    <S.ChatListWrpper>
       <div>
         <div>대화 기록</div>
         <div>더보기 </div>
       </div>
       <ChatComponent />
       <ChatComponent />
-    </div>
+    </S.ChatListWrpper>
   );
 };
 
