@@ -22,11 +22,14 @@ export const SearchHistoryLabel = styled.div`
 `;
 
 export const HotTopicLabel = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 359px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 5px 5px #dfdfdf;
   padding: 20px;
+  gap: 20px;
 `;
 export const Size24Colorgray = styled.div`
   font-size: 24px;
@@ -36,6 +39,7 @@ export const Size24Colorgray = styled.div`
 export const Size24ColorBlue = styled.div`
   font-size: 24px;
   color: #007aff;
+  margin: 10px 0;
 `;
 export const SearchedWordLabel = styled.div`
   display: flex;
@@ -80,4 +84,6 @@ export const FontSize20 = styled.div`
 `;
 export const DisplayFlex = styled.div`
   display: flex;
+  align-items: center;
+  gap: 10px;
 `;
