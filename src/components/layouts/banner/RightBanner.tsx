@@ -21,6 +21,8 @@ const RightBanner = () => {
     { ranking: 5, topic: "무단횡단" },
   ]);
 
+  const handleHistoryDelete = () => {};
+
   return (
     <S.RightBannerWrapper>
       <S.BannerImg>
@@ -32,7 +34,11 @@ const RightBanner = () => {
           {searchHistory.map((keyword) => (
             <S.PositionRel>
               <S.SearchedWord>{keyword}</S.SearchedWord>
-              <S.CloseBtn src={CloseBtn} alt="X" />
+              <S.CloseBtn
+                src={CloseBtn}
+                alt="X"
+                onClick={handleHistoryDelete}
+              />
             </S.PositionRel>
           ))}
         </S.SearchedWordLabel>
