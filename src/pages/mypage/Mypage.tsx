@@ -16,8 +16,8 @@ const Mypage = () => {
           <ChatList />
         </S.DisplayFlex>
         <S.DisplayFlex>
-          <MyCard />
-          <MyCard />
+          <MyCard title="나의 찾아요" />
+          <MyCard title="나의 제보해요" />
         </S.DisplayFlex>
       </div>
       <RightBanner />
