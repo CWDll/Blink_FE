@@ -34,12 +34,14 @@ function Search() {
 
   return (
     <S.Container>
-      <S.Input
-        value={inputText}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
-      <S.SearchIcon src={searchIcon} alt="검색" onClick={clickSearch} />
+      <div>
+        <S.Input
+          value={inputText}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+        ></S.Input>
+        <S.SearchIcon src={searchIcon} alt="검색" onClick={clickSearch} />
+      </div>
       <div>
         <S.LocationText>최근 검색 지역</S.LocationText>
         <S.TagConatainer>

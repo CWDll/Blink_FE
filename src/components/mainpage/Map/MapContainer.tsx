@@ -17,7 +17,8 @@ const OPTIONS = {
   maxZoom: 18,
 };
 
-const googleApiKey = process.env.REACT_APP_GOOGLE_KEY as string;
+// const googleApiKey = process.env.REACT_APP_GOOGLE_KEY || "";
+const googleApiKey = "AIzaSyAm7xHJD8MezlrgvZ-Gsy7WIKLXrlXsasY";
 
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
@@ -49,7 +50,7 @@ function MyComponent() {
       <Marker position={center}></Marker>
     </GoogleMap>
   ) : (
-    <></>
+    <div>[로딩중...] GoogleMapContainer가 로드되지 않았습니다.</div>
   );
 }
 
