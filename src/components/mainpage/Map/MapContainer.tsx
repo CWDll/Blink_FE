@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
+import * as P from "../../layouts/nav/style";
+import Mypage from "../../../assets/image/nav/temp_profile.png";
 
 const containerStyle = {
   width: "69.5vw",
@@ -22,6 +25,8 @@ const OPTIONS = {
 const googleApiKey = "AIzaSyAm7xHJD8MezlrgvZ-Gsy7WIKLXrlXsasY";
 
 const MyComponent: React.FC = () => {
+  const navigate = useNavigate();
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: googleApiKey,
@@ -92,13 +97,17 @@ const MyComponent: React.FC = () => {
   return isLoaded ? (
     <div>
       <S.MapButtonContainer>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <P.IconSection onClick={() => navigate("mypage")}>
+          <P.ProfileImg src={Mypage} alt="마이" />
+        </P.IconSection>
+        <S.FloatButton>달력</S.FloatButton>
+        <S.FloatButton>현재 위치</S.FloatButton>
+        <S.FloatButton>확대</S.FloatButton>
+        <S.FloatButton>축소</S.FloatButton>
       </S.MapButtonContainer>
-      <S.FloatButton onClick={getCurrentLocation}>
+      {/* <S.FloatButton onClick={getCurrentLocation}>
         Get Current Location
-      </S.FloatButton>
+      </S.FloatButton> */}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
