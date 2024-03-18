@@ -30,18 +30,16 @@ const MyComponent: React.FC = () => {
   const [currentPosition, setCurrentPosition] =
     useState<google.maps.LatLng | null>(null);
 
-  /*
   const onLoad = React.useCallback(function callback(map: any) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
 
     setMap(map);
   }, []);
-  */
 
-  const onLoad = React.useCallback((mapInstance: google.maps.Map) => {
-    setMap(mapInstance);
-  }, []);
+  // const onLoad = React.useCallback((mapInstance: google.maps.Map) => {
+  //   setMap(mapInstance);
+  // }, []);
 
   const onUnmount = React.useCallback(function callback(map: any) {
     setMap(null);
@@ -70,6 +68,7 @@ const MyComponent: React.FC = () => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
+        zoom={16}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={OPTIONS}
