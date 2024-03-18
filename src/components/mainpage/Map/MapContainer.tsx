@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
@@ -20,38 +20,66 @@ const OPTIONS = {
 // const googleApiKey = process.env.REACT_APP_GOOGLE_KEY || "";
 const googleApiKey = "AIzaSyAm7xHJD8MezlrgvZ-Gsy7WIKLXrlXsasY";
 
-function MyComponent() {
+const MyComponent: React.FC = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: googleApiKey,
   });
 
-  const [map, setMap] = React.useState(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [currentPosition, setCurrentPosition] =
+    useState<google.maps.LatLng | null>(null);
 
+  /*
   const onLoad = React.useCallback(function callback(map: any) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
 
     setMap(map);
   }, []);
+  */
+
+  const onLoad = React.useCallback((mapInstance: google.maps.Map) => {
+    setMap(mapInstance);
+  }, []);
 
   const onUnmount = React.useCallback(function callback(map: any) {
     setMap(null);
   }, []);
 
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const currentLocation = new google.maps.LatLng(
+          position.coords.latitude,
+          position.coords.longitude
+        );
+        if (map) {
+          map.panTo(currentLocation);
+        }
+        setCurrentPosition(currentLocation);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser");
+    }
+  };
+
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      options={OPTIONS}
-    >
-      <Marker position={center}></Marker>
-    </GoogleMap>
+    <div>
+      <button onClick={getCurrentLocation}>Get Current Location</button>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        options={OPTIONS}
+      >
+        {currentPosition && <Marker position={currentPosition}></Marker>}
+      </GoogleMap>
+    </div>
   ) : (
     <div>[로딩중...] GoogleMapContainer가 로드되지 않았습니다.</div>
   );
-}
+};
 
 export default React.memo(MyComponent);
