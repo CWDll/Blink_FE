@@ -96,18 +96,17 @@ const MyComponent: React.FC = () => {
 
   return isLoaded ? (
     <div>
-      <S.MapButtonContainer>
+      <S.FloatContainer>
         <P.IconSection onClick={() => navigate("mypage")}>
           <P.ProfileImg src={Mypage} alt="마이" />
         </P.IconSection>
-        <S.FloatButton>달력</S.FloatButton>
-        <S.FloatButton>현재 위치</S.FloatButton>
-        <S.FloatButton>확대</S.FloatButton>
-        <S.FloatButton>축소</S.FloatButton>
-      </S.MapButtonContainer>
-      {/* <S.FloatButton onClick={getCurrentLocation}>
-        Get Current Location
-      </S.FloatButton> */}
+        <S.FloatButtonContainer>
+          <S.FloatButton>달력</S.FloatButton>
+          <S.FloatButton onClick={getCurrentLocation}>현재 위치</S.FloatButton>
+          <S.FloatButton>확대</S.FloatButton>
+          <S.FloatButton>축소</S.FloatButton>
+        </S.FloatButtonContainer>
+      </S.FloatContainer>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
