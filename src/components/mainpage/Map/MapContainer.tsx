@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import * as S from "./style";
 
 const containerStyle = {
   width: "69.5vw",
@@ -62,9 +63,42 @@ const MyComponent: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const currentLocation = new google.maps.LatLng(
+          position.coords.latitude,
+          position.coords.longitude
+        );
+        setCurrentPosition(currentLocation);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (map && currentPosition) {
+      const marker = new google.maps.Marker({
+        position: currentPosition,
+        map: map,
+      });
+      return () => {
+        marker.setMap(null);
+      };
+    }
+  }, [map, currentPosition]);
+
   return isLoaded ? (
     <div>
-      <button onClick={getCurrentLocation}>Get Current Location</button>
+      <S.MapButtonContainer>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </S.MapButtonContainer>
+      <S.FloatButton onClick={getCurrentLocation}>
+        Get Current Location
+      </S.FloatButton>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
