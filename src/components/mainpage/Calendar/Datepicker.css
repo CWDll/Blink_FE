@@ -1,0 +1,12 @@
+.DayPicker-Months {
+  display: flex;
+  justify-content: center; /* 월을 가운데 정렬합니다. */
+}
+
+.DayPicker-Month {
+  width: 300px; /* 1개의 월만 표시하려면 적절한 너비를 설정합니다. */
+}
+
+.rdr-buttons-position {
+  bottom: 1rem;
+}

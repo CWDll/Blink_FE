@@ -4,7 +4,7 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
 import * as P from "../../layouts/nav/style";
 import Mypage from "../../../assets/image/nav/temp_profile.png";
-import Calendar from "../Calendar/Calendar";
+import DateRangeSelector from "../Calendar/DateRangeSelector";
 
 const containerStyle = {
   width: "69.5vw",
@@ -133,7 +133,7 @@ const MyComponent: React.FC = () => {
           <S.FloatButton onClick={() => decreaseZoom()}>축소</S.FloatButton>
         </S.FloatButtonContainer>
       </S.FloatContainer>
-      {showCalendar && <Calendar />}
+      {showCalendar && <DateRangeSelector />}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
