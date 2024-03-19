@@ -4,6 +4,7 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
 import * as P from "../../layouts/nav/style";
 import Mypage from "../../../assets/image/nav/temp_profile.png";
+import Calendar from "../Calendar/Calendar";
 
 const containerStyle = {
   width: "69.5vw",
@@ -27,12 +28,25 @@ const googleApiKey = "AIzaSyAm7xHJD8MezlrgvZ-Gsy7WIKLXrlXsasY";
 const MyComponent: React.FC = () => {
   const navigate = useNavigate();
   const [currentZoom, setCurrentZoom] = useState<number>(16);
+  const [showCalendar, setShowCalendar] = useState<boolean>(false);
+
+  //달력 컴포넌트 렌더링 유무 조정
+  const handleCalendar = () => {
+    if (showCalendar) {
+      setShowCalendar(false);
+    } else {
+      setShowCalendar(true);
+    }
+  };
+
+  //지도 확대
   const increaseZoom = () => {
     if (currentZoom < OPTIONS.maxZoom) {
       setCurrentZoom(currentZoom + 1);
     }
     alert(currentZoom);
   };
+  //지도 축소
   const decreaseZoom = () => {
     if (currentZoom > OPTIONS.minZoom) {
       setCurrentZoom(currentZoom - 1);
@@ -113,12 +127,13 @@ const MyComponent: React.FC = () => {
           <P.ProfileImg src={Mypage} alt="마이" />
         </P.IconSection>
         <S.FloatButtonContainer>
-          <S.FloatButton>달력</S.FloatButton>
+          <S.FloatButton onClick={handleCalendar}>달력</S.FloatButton>
           <S.FloatButton onClick={getCurrentLocation}>현재 위치</S.FloatButton>
           <S.FloatButton onClick={() => increaseZoom()}>확대</S.FloatButton>
           <S.FloatButton onClick={() => decreaseZoom()}>축소</S.FloatButton>
         </S.FloatButtonContainer>
       </S.FloatContainer>
+      {showCalendar && <Calendar />}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
