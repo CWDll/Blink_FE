@@ -4,7 +4,6 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
 import * as P from "../../layouts/nav/style";
 import Mypage from "../../../assets/image/nav/temp_profile.png";
-import { inflate } from "zlib";
 
 const containerStyle = {
   width: "69.5vw",
