@@ -4,6 +4,7 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
 import * as P from "../../layouts/nav/style";
 import Mypage from "../../../assets/image/nav/temp_profile.png";
+import { inflate } from "zlib";
 
 const containerStyle = {
   width: "69.5vw",
@@ -17,7 +18,7 @@ const center = {
 };
 
 const OPTIONS = {
-  minZoom: 4,
+  minZoom: 12,
   maxZoom: 18,
 };
 
@@ -26,6 +27,18 @@ const googleApiKey = "AIzaSyAm7xHJD8MezlrgvZ-Gsy7WIKLXrlXsasY";
 
 const MyComponent: React.FC = () => {
   const navigate = useNavigate();
+  const [currentZoom, setCurrentZoom] = useState<number>(16);
+  const increaseZoom = () => {
+    if (currentZoom < OPTIONS.maxZoom) {
+      setCurrentZoom(currentZoom + 1);
+    }
+    alert(currentZoom);
+  };
+  const decreaseZoom = () => {
+    if (currentZoom > OPTIONS.minZoom) {
+      setCurrentZoom(currentZoom - 1);
+    }
+  };
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -103,17 +116,17 @@ const MyComponent: React.FC = () => {
         <S.FloatButtonContainer>
           <S.FloatButton>달력</S.FloatButton>
           <S.FloatButton onClick={getCurrentLocation}>현재 위치</S.FloatButton>
-          <S.FloatButton>확대</S.FloatButton>
-          <S.FloatButton>축소</S.FloatButton>
+          <S.FloatButton onClick={() => increaseZoom()}>확대</S.FloatButton>
+          <S.FloatButton onClick={() => decreaseZoom()}>축소</S.FloatButton>
         </S.FloatButtonContainer>
       </S.FloatContainer>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={16}
+        zoom={currentZoom}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        options={OPTIONS}
+        options={{ ...OPTIONS, gestureHandling: "cooperative" }}
       >
         {currentPosition && <Marker position={currentPosition}></Marker>}
       </GoogleMap>
