@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import { defaultStaticRanges } from "./defaultRanges";
 import { format } from "date-fns";
+import styled from "styled-components";
 
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -12,6 +13,22 @@ interface DateRangeSelectorProps {
   ranges?: any[]; // defaultStaticRanges와 같은 타입으로 변경하는 것이 좋습니다.
   onSubmit?: () => void;
 }
+
+const StyledRangeSelector = styled(DateRangePicker)`
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 1000;
+  right: 25%;
+  top: 20%;
+  border: 2px solid gray;
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: row;
+  justify-contens: flex-start;
+  /* align-items: center; */
+`;
 
 const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
   ranges = defaultStaticRanges,
@@ -46,7 +63,7 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
   return (
     <React.Fragment>
       <div className="shadow d-inline-block">
-        <DateRangePicker
+        <StyledRangeSelector
           onChange={handleSelect}
           // showSelectionPreview={true}
           moveRangeOnFirstSelection={false}
