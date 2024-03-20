@@ -17,6 +17,7 @@ const center = {
   lng: 126.985575,
 };
 
+// 최대 줌 척도 지정
 const OPTIONS = {
   minZoom: 12,
   maxZoom: 18,
@@ -144,6 +145,7 @@ const MyComponent: React.FC = () => {
       >
         {currentPosition && <Marker position={currentPosition}></Marker>}
       </GoogleMap>
+      <S.AddPostButton>블랙박스 기록 추가하기</S.AddPostButton>
     </div>
   ) : (
     <div>[로딩중...] GoogleMapContainer가 로드되지 않았습니다.</div>
