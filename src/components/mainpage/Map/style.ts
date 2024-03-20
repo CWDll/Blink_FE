@@ -1,10 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const FloatContainer = styled.div`
+const FloatStyle = css`
   position: absolute;
+  border: 0;
+  z-index: 1000;
+`;
+export const FloatContainer = styled.div`
+  ${FloatStyle}
   width: 80px;
   height: 100%;
-  z-index: 1000;
+
   right: 3%;
   padding: 1em;
 
@@ -28,13 +33,13 @@ export const FloatButton = styled.button`
 `;
 
 export const AddPostButton = styled.button`
-  position: absolute;
+  ${FloatStyle}
   background-color: #007aff;
   color: #ffffff;
   width: 354px;
   height: 75px;
   font-size: 24px;
-  border: 0;
+
   border-radius: 20px;
   bottom: 10%;
   right: 30%;
