@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import { defaultStaticRanges } from "./defaultRanges";
 import { format } from "date-fns";
+import ko from "date-fns/locale/ko";
 import styled from "styled-components";
 
 import "react-date-range/dist/styles.css"; // main style file
@@ -64,6 +65,7 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
     <React.Fragment>
       <div className="shadow d-inline-block">
         <StyledRangeSelector
+          locale={ko}
           onChange={handleSelect}
           // showSelectionPreview={true}
           moveRangeOnFirstSelection={false}

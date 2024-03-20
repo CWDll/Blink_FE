@@ -121,42 +121,42 @@ interface StaticRange {
 
 export const defaultStaticRanges: StaticRange[] = createStaticRanges([
   {
-    label: "Today",
+    label: "오늘",
     range: () => ({
       startDate: defineds.startOfToday,
       endDate: defineds.endOfToday,
     }),
   },
   {
-    label: "Yesterday",
+    label: "어제",
     range: () => ({
       startDate: defineds.startOfYesterday,
       endDate: defineds.endOfYesterday,
     }),
   },
   {
-    label: "This Week",
+    label: "이번 주",
     range: () => ({
       startDate: defineds.startOfWeek,
       endDate: defineds.endOfWeek,
     }),
   },
   {
-    label: "Last Week",
+    label: "지난 주",
     range: () => ({
       startDate: defineds.startOfLastWeek,
       endDate: defineds.endOfLastWeek,
     }),
   },
   {
-    label: "This Month",
+    label: "이번 달",
     range: () => ({
       startDate: defineds.startOfMonth,
       endDate: defineds.endOfMonth,
     }),
   },
   {
-    label: "Last Month",
+    label: "지난 달",
     range: () => ({
       startDate: defineds.startOfLastMonth,
       endDate: defineds.endOfLastMonth,
@@ -175,7 +175,7 @@ interface InputRange {
 
 export const defaultInputRanges: InputRange[] = [
   {
-    label: "days up to today",
+    label: "오늘부터 몇 일 전",
     range(value) {
       return {
         startDate: addDays(
