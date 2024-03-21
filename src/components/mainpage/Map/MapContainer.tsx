@@ -145,7 +145,7 @@ const MyComponent: React.FC = () => {
       >
         {currentPosition && <Marker position={currentPosition}></Marker>}
       </GoogleMap>
-      <S.AddPostButton>블랙박스 기록 추가하기</S.AddPostButton>
+      {/* <S.AddPostButton>블랙박스 기록 추가하기</S.AddPostButton> */}
     </div>
   ) : (
     <div>[로딩중...] GoogleMapContainer가 로드되지 않았습니다.</div>
