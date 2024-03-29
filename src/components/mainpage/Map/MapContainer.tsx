@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import * as S from "./style";
@@ -37,6 +37,14 @@ const MyComponent: React.FC = () => {
   const navigate = useNavigate();
   const [currentZoom, setCurrentZoom] = useState<number>(16);
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
+
+  const [mapClicked, setMapClicked] = useState<boolean>(false);
+
+  const mapRef = useRef<google.maps.Map | null>(null);
+
+  const handleMapClick = () => {
+    setMapClicked(true);
+  };
 
   // 기록 추가 버튼을 눌렀을 시 선택 props로 width를 조정해야 할 듯 함.
   const containerStyle = {
@@ -169,6 +177,10 @@ const MyComponent: React.FC = () => {
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{ ...OPTIONS, gestureHandling: "cooperative" }}
+        onClick={() => {
+          handleMapClick();
+          setShowCalendar(false);
+        }}
       >
         {currentPosition && <Marker position={currentPosition}></Marker>}
       </GoogleMap>
