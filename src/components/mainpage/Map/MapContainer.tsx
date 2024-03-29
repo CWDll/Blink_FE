@@ -146,18 +146,18 @@ const MyComponent: React.FC = () => {
         </P.IconSection>
         <S.FloatButtonContainer>
           <S.FloatButton onClick={handleCalendar}>
-            <FontAwesomeIcon icon={faCalendar} />
+            <FontAwesomeIcon icon={faCalendar} size="2xl" />
             {/* <FontAwesomeIcon icon="fa-regular fa-calendar" /> 이 방식으로 하려다가 바꿈*/}
           </S.FloatButton>
           <S.FloatButton onClick={getCurrentLocation}>
-            <FontAwesomeIcon icon={faLocation} />
+            <FontAwesomeIcon icon={faLocation} size="2xl" />
           </S.FloatButton>
           <div>
             <S.FloatButton onClick={() => increaseZoom()}>
-              <FontAwesomeIcon icon={faPlus} />
+              <FontAwesomeIcon icon={faPlus} size="xl" />
             </S.FloatButton>
             <S.FloatButton onClick={() => decreaseZoom()}>
-              <FontAwesomeIcon icon={faMinus} />
+              <FontAwesomeIcon icon={faMinus} size="xl" />
             </S.FloatButton>
           </div>
         </S.FloatButtonContainer>

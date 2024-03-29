@@ -23,6 +23,7 @@ export const IconSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 `;
 export const NavLogoImg = styled.img`
   width: 120px;
