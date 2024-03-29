@@ -5,12 +5,19 @@ import * as S from "./style";
 import * as P from "../../layouts/nav/style";
 import Mypage from "../../../assets/image/nav/temp_profile.png";
 import DateRangeSelector from "../Calendar/DateRangeSelector";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { faLocation } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const containerStyle = {
-  width: "69.5vw",
-  height: "100vh",
-  border: "1px solid black",
-};
+// const containerStyle = {
+//   maxWidth: "67.2vw",
+//   width: "69.5vw",
+//   minWidth: "30vw",
+//   height: "100vh",
+//   border: "1px solid black",
+// };
 
 const center = {
   lat: 37.5649867,
@@ -30,6 +37,15 @@ const MyComponent: React.FC = () => {
   const navigate = useNavigate();
   const [currentZoom, setCurrentZoom] = useState<number>(16);
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
+
+  // 기록 추가 버튼을 눌렀을 시 선택 props로 width를 조정해야 할 듯 함.
+  const containerStyle = {
+    maxWidth: "67.2vw",
+    width: "69.5vw",
+    minWidth: "30vw",
+    height: "100vh",
+    border: "1px solid black",
+  };
 
   //달력 컴포넌트 렌더링 유무 조정
   const handleCalendar = () => {
@@ -123,15 +139,27 @@ const MyComponent: React.FC = () => {
 
   return isLoaded ? (
     <div>
+      {/* 지도 우측 상단에 띄워진 버튼 */}
       <S.FloatContainer>
         <P.IconSection onClick={() => navigate("mypage")}>
           <P.ProfileImg src={Mypage} alt="마이" />
         </P.IconSection>
         <S.FloatButtonContainer>
-          <S.FloatButton onClick={handleCalendar}>달력</S.FloatButton>
-          <S.FloatButton onClick={getCurrentLocation}>현재 위치</S.FloatButton>
-          <S.FloatButton onClick={() => increaseZoom()}>확대</S.FloatButton>
-          <S.FloatButton onClick={() => decreaseZoom()}>축소</S.FloatButton>
+          <S.FloatButton onClick={handleCalendar}>
+            <FontAwesomeIcon icon={faCalendar} />
+            {/* <FontAwesomeIcon icon="fa-regular fa-calendar" /> 이 방식으로 하려다가 바꿈*/}
+          </S.FloatButton>
+          <S.FloatButton onClick={getCurrentLocation}>
+            <FontAwesomeIcon icon={faLocation} />
+          </S.FloatButton>
+          <div>
+            <S.FloatButton onClick={() => increaseZoom()}>
+              <FontAwesomeIcon icon={faPlus} />
+            </S.FloatButton>
+            <S.FloatButton onClick={() => decreaseZoom()}>
+              <FontAwesomeIcon icon={faMinus} />
+            </S.FloatButton>
+          </div>
         </S.FloatButtonContainer>
       </S.FloatContainer>
       {showCalendar && <DateRangeSelector />}

@@ -19,8 +19,7 @@ export const FloatContainer = styled.div`
 `;
 
 export const FloatButtonContainer = styled.div`
-  height: 250px;
-  background-color: blue;
+  height: 14em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
