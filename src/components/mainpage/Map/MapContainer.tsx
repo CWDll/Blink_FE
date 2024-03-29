@@ -60,14 +60,13 @@ const MyComponent: React.FC = () => {
   const increaseZoom = () => {
     if (currentZoom < OPTIONS.maxZoom) {
       setCurrentZoom(currentZoom + 1);
-    }
-    alert(currentZoom);
+    } else return;
   };
   //지도 축소
   const decreaseZoom = () => {
     if (currentZoom > OPTIONS.minZoom) {
       setCurrentZoom(currentZoom - 1);
-    }
+    } else return;
   };
 
   const { isLoaded } = useJsApiLoader({
