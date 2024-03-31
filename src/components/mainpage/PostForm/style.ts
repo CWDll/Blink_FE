@@ -6,5 +6,14 @@ export const PostFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: skyblue;
+  background-color: #eff2f7;
+`;
+
+export const TopConainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const TopBar = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

@@ -5,10 +5,17 @@ import Button from "../../atoms/Buttons/Button";
 function PostForm() {
   return (
     <S.PostFormContainer>
-      <Button text="1번 버튼" color="black" />
-      <Button text="2번 버튼" color="red" />
-      <Button text="3번 버튼" color="blue" />
-      <Button text="3번 버튼" color="white" />
+      <S.TopConainer>
+        <S.TopBar>
+          <Button text="나가기" color="black" />
+          <h1>글 쓰기</h1>
+        </S.TopBar>
+        <S.TopBar>
+          <Button text="글쓰기" color="black" />
+          <Button text="작성 완료" color="black" />
+        </S.TopBar>
+      </S.TopConainer>
+      <hr />
     </S.PostFormContainer>
   );
 }
